@@ -3,7 +3,291 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Index</title>
+    <title>Git & GitHub Notes</title>
+    <link
+      href="https://fonts.googleapis.com/css2?family=Fira+Code&display=swap"
+      rel="stylesheet"
+    />
+    <style>
+      * {
+        margin: 0;
+        padding: 0;
+        box-sizing: border-box;
+        scroll-behavior: smooth;
+      }
+      body {
+        font-family: "Fira Code", monospace;
+        background: #0d1117;
+        color: #c9d1d9;
+        line-height: 1.7;
+        padding: 2rem;
+      }
+      h1,
+      h2,
+      h3,
+      h4 {
+        color: #58a6ff;
+        margin-bottom: 1rem;
+      }
+      section {
+        margin-bottom: 3rem;
+      }
+      pre,
+      code {
+        background: #161b22;
+        color: #ffffff;
+        padding: 0.5rem;
+        border-radius: 6px;
+        display: block;
+        overflow-x: auto;
+      }
+      table {
+        width: 100%;
+        border-collapse: collapse;
+        margin-top: 1rem;
+      }
+      th,
+      td {
+        padding: 0.75rem;
+        border: 1px solid #30363d;
+      }
+      th {
+        background: #21262d;
+        color: #58a6ff;
+      }
+      a {
+        color: #58a6ff;
+        text-decoration: none;
+      }
+      ul,
+      ol {
+        margin-left: 1.5rem;
+      }
+      nav {
+        background: #161b22;
+        padding: 1rem;
+        margin-bottom: 2rem;
+        border-radius: 8px;
+      }
+      nav ul {
+        list-style: none;
+        display: grid;
+        grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+        gap: 1rem;
+      }
+      nav li {
+        background: #21262d;
+        padding: 0.75rem;
+        border-radius: 5px;
+        text-align: center;
+      }
+      nav a:hover {
+        text-decoration: underline;
+      }
+    </style>
   </head>
-  <body></body>
+  <body>
+    <h1>🚀 Git & GitHub Notes</h1>
+
+    <nav>
+      <ul>
+        <li><a href="#what-is-git">📌 What is Git?</a></li>
+        <li><a href="#what-is-github">🌐 What is GitHub?</a></li>
+        <li><a href="#git-commands">🧰 Git Commands</a></li>
+        <li><a href="#connect-to-github">🔗 Connect to GitHub</a></li>
+        <li><a href="#clone">📁 Cloning</a></li>
+        <li><a href="#gitignore">🙈 .gitignore</a></li>
+        <li><a href="#branching">🔀 Branching</a></li>
+        <li><a href="#mistakes">⚠️ Mistakes & Fixes</a></li>
+        <li><a href="#cheatsheet">📋 Cheatsheet</a></li>
+        <li><a href="#quick-revision">🔁 Quick Revision</a></li>
+        <li><a href="#whats-next">⏭️ What's Next?</a></li>
+      </ul>
+    </nav>
+
+    <section id="what-is-git">
+      <h2>📌 1. What is Git?</h2>
+      <ul>
+        <li>Track changes to files</li>
+        <li>Revert to earlier versions</li>
+        <li>Collaborate on code</li>
+      </ul>
+      <h3>Core Git Concepts</h3>
+      <ul>
+        <li><strong>Repository:</strong> Folder tracked by Git</li>
+        <li><strong>Commit:</strong> A saved version</li>
+        <li><strong>Branch:</strong> Parallel workspace</li>
+        <li><strong>Staging Area:</strong> Where files are prepared</li>
+      </ul>
+    </section>
+
+    <section id="what-is-github">
+      <h2>🌐 2. What is GitHub?</h2>
+      <p>
+        Cloud platform for hosting Git repositories with features like pull
+        requests, issues, and collaboration tools.
+      </p>
+    </section>
+
+    <section id="git-commands">
+      <h2>🧰 3. Git Setup & Basic Commands</h2>
+      <h4>Initialize Repository</h4>
+      <pre><code>git init</code></pre>
+      <h4>Add files</h4>
+      <pre><code>git add .</code></pre>
+      <h4>Commit files</h4>
+      <pre><code>git commit -m "Initial commit"</code></pre>
+      <h4>Status</h4>
+      <pre><code>git status</code></pre>
+      <h4>View history</h4>
+      <pre><code>git log</code></pre>
+    </section>
+
+    <section id="connect-to-github">
+      <h2>🔗 4. Connect to GitHub</h2>
+      <pre><code>git remote add origin https://github.com/user/repo.git
+git branch -M main
+git push -u origin main</code></pre>
+      <h4>Pull latest from GitHub</h4>
+      <pre><code>git pull origin main</code></pre>
+    </section>
+
+    <section id="clone">
+      <h2>📁 5. Cloning a Repo</h2>
+      <pre><code>git clone https://github.com/user/repo.git</code></pre>
+    </section>
+
+    <section id="gitignore">
+      <h2>🙈 6. .gitignore</h2>
+      <pre><code>not_push.html
+node_modules/
+*.log</code></pre>
+      <h4>Remove tracked file</h4>
+      <pre><code>git rm --cached not_push.html</code></pre>
+    </section>
+
+    <section id="branching">
+      <h2>🔀 7. Branching</h2>
+      <pre><code>git branch new-feature       # create
+git checkout new-feature    # switch
+# or
+git checkout -b new-feature # both</code></pre>
+      <h4>Merge to main</h4>
+      <pre><code>git checkout main
+git merge new-feature</code></pre>
+      <h4>Delete Branch</h4>
+      <pre><code>git branch -d new-feature
+git push origin --delete new-feature</code></pre>
+    </section>
+
+    <section id="mistakes">
+      <h2>⚠️ Mistakes & Fixes</h2>
+      <h4>❌ Tracked a file by mistake</h4>
+      <pre><code>git rm --cached filename
+</code></pre>
+      <h4>❌ Used 'touch' on Windows</h4>
+      <pre><code>New-Item .gitignore</code></pre>
+    </section>
+
+    <section id="cheatsheet">
+      <h2>📋 Cheatsheet</h2>
+      <table>
+        <thead>
+          <tr>
+            <th>Command</th>
+            <th>Purpose</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td>git init</td>
+            <td>Start a new local repo</td>
+          </tr>
+          <tr>
+            <td>git status</td>
+            <td>Check file changes</td>
+          </tr>
+          <tr>
+            <td>git add .</td>
+            <td>Stage all files</td>
+          </tr>
+          <tr>
+            <td>git commit -m "msg"</td>
+            <td>Save snapshot</td>
+          </tr>
+          <tr>
+            <td>git log</td>
+            <td>View history</td>
+          </tr>
+          <tr>
+            <td>git remote add origin</td>
+            <td>Link with GitHub</td>
+          </tr>
+          <tr>
+            <td>git push -u origin main</td>
+            <td>Push changes</td>
+          </tr>
+          <tr>
+            <td>git pull origin main</td>
+            <td>Sync updates</td>
+          </tr>
+          <tr>
+            <td>git checkout -b feature</td>
+            <td>Create & switch branch</td>
+          </tr>
+          <tr>
+            <td>git merge feature</td>
+            <td>Merge into current</td>
+          </tr>
+          <tr>
+            <td>git branch -d feature</td>
+            <td>Delete local branch</td>
+          </tr>
+          <tr>
+            <td>git clone URL</td>
+            <td>Download GitHub repo</td>
+          </tr>
+        </tbody>
+      </table>
+    </section>
+
+    <section id="quick-revision">
+      <h2>🔁 Quick Revision</h2>
+      <ol>
+        <li>git init</li>
+        <li>git status</li>
+        <li>git add .</li>
+        <li>git commit -m "msg"</li>
+        <li>git remote add origin URL</li>
+        <li>git push -u origin main</li>
+        <li>git pull origin main</li>
+        <li>.gitignore</li>
+        <li>git checkout -b feature</li>
+        <li>git merge feature</li>
+        <li>git branch -d feature</li>
+      </ol>
+    </section>
+
+    <section id="whats-next">
+      <h2>⏭️ What's Next?</h2>
+      <ul>
+        <li>
+          ⛑️ Undoing changes – <code>reset</code>, <code>revert</code>,
+          <code>restore</code>
+        </li>
+        <li>⚔️ Handling merge conflicts</li>
+        <li>🌱 Forking and contributing to other projects</li>
+        <li>🚀 Using pull requests for collaboration</li>
+        <li>🧪 Optional: Git rebase for cleaner history</li>
+      </ul>
+    </section>
+
+    <section>
+      <h2>🎉 Final Words</h2>
+      <p>
+        You’ve mastered Git basics, GitHub sync, .gitignore, branching, and
+        more. You're now ready to collaborate like a pro. 🚀
+      </p>
+    </section>
+  </body>
 </html>
